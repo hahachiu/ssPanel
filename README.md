@@ -1,2 +1,2 @@
 # ssPanel
-ssh maven mysql  mdl convenience store 
+ssh maven mysql  mdl convenience store
