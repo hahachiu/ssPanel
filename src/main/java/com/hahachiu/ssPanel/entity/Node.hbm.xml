@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-11-11 23:19:21 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hahachiu.ssPanel.entity">
+ <class name="Node" table="nodes">
+  <id name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property column="creation_date" type="java.util.Date" generated="never" lazy="false"
+   name="creationDate" not-null="true"/>
+  <property name="ratio" type="float" column="ratio" generated="never" lazy="false"/>
+  <property name="nodeName" type="string" column="nodeName" generated="never" length="20" lazy="false"/>
+  <property name="state" type="string" column="state" generated="never" length="10" lazy="false"/>
+  <property name="address" type="string" column="address" generated="never" length="20" lazy="false"/>
+  <property name="encryption" type="string" column="encryption" generated="never" length="20" lazy="false"/>
+  <property name="detail" type="string" column="detail" generated="never" length="30" lazy="false"/>
+ </class>
+</hibernate-mapping>

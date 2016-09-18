@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-11-11 23:19:21 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.hahachiu.ssPanel.entity">
+ <class name="ChargeOrder" table="chargeorders">
+  <id name="id" type="long">
+   <generator class="native"/>
+  </id>
+  <property column="creation_date" type="java.util.Date" generated="never" lazy="false"
+   name="creationDate" not-null="true"/>
+  <property name="other" type="integer" column="other" generated="never" lazy="false"/>
+  <property name="figure" type="float" column="figure" generated="never" lazy="false"/>
+  <property name="way" type="string" column="way" generated="never" length="10" lazy="false"/>
+  <many-to-one class="User" column="user_id" name="user" not-null="true"/>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 指定由spring负责action对象的创建 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 所有匹配*.action的请求都由struts2处理 -->
+	<constant name="struts.action.extension" value="action" />
+	<!-- 是否启用开发模式 -->
+	<constant name="struts.devMode" value="true" />
+	<!-- struts配置文件改动后，是aa否重新加载 -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<!-- 设置浏览器是否缓存静态内容 -->
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<!-- 请求参数的编码方式 -->
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<!-- 每次HTTP请求系统都重新加载资源文件，有助于开发 -->
+	<constant name="struts.i18n.reload" value="true" />
+	<!-- 文件上传最大值 -->
+	<constant name="struts.multipart.maxSize" value="104857600" />
+	<!-- 让struts2支持动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- Action名称中是否还是用斜线 -->
+	<constant name="struts.enable.SlashesInActionNames" value="false" />
+	<!-- 允许标签中使用表达式语法 -->
+	<constant name="struts.tag.altSyntax" value="true" />
+	<!-- 对于WebLogic,Orion,OC4J此属性应该设置成true -->
+	<constant name="struts.dispatcher.parametersWorkaround" value="false" />
+
+	<constant name="struts.objectFactory" value="spring"/>
+	
+	<package name="default" extends="struts-default">
+   
+     <action name="register" class="userAction" method="register">
+       <result name="input">/index.jsp?page=register</result>
+       <result name="success">/index.jsp?page=user</result>
+     </action>
+     
+     <action name="login" class="userAction" method="login">
+       <result name="input">/index.jsp?page=login</result>
+       <result name="success">/index.jsp</result>
+     </action>
+     
+     <action name="logout" class="userAction" method="logout">
+       <result>/index.jsp</result>
+     </action>
+     
+     <action name="logs" class="logAction">
+       <result>/WEB-INF/view/logs.jsp</result>
+     </action>
+     
+     <action name="nodes" class="nodeAction">
+       <result>/WEB-INF/view/nodes.jsp</result>
+     </action>
+     
+     <action name="plans" class="planAction">
+       <result>/WEB-INF/view/plans.jsp</result>
+     </action>
+     
+     <action name="orders" class="orderAction">
+       <result>/WEB-INF/view/orders.jsp</result>
+     </action>
+     
+     <action name="showCart" class="shoppingAction">
+       <result>/index.jsp?page=cart</result>
+     </action>
+     
+     <action name="addToCart" class="shoppingAction" method="addToCart">
+       <result>/index.jsp?page=cart</result>
+     </action>
+     
+     <action name="updateCart" class="shoppingAction" method="updateCart">
+       <result>/index.jsp?page=cart</result>
+     </action>
+     
+     <action name="removeFromCart" class="shoppingAction" method="removeFromCart">
+       <result>/index.jsp?page=cart</result>
+     </action>
+     
+     <action name="checkout" class="shoppingAction" method="checkout">
+       <result>/index.jsp?page=successOrder</result>
+       <result name="input">/index.jsp?page=login</result>
+       <result name="error">/index.jsp?page=error</result>
+     </action>
+     
+     <action name="orderDetail" class="orderItemAction">
+       <result>/index.jsp?page=orderDetail</result>
+     </action>
+     
+     
+   </package>
+</struts>
